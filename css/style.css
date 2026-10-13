@@ -1927,3 +1927,8 @@ button:hover .arrow {
     transform: none;
   }
 }
+
+/* Фото саксофониста: инструмент слева, держим его в кадре при обрезке */
+.jazz__image img[src$="jazz-saxophone.jpg"] {
+  object-position: 20% 50%;
+}
