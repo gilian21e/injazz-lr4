@@ -8,6 +8,16 @@
   <meta name="color-scheme" content="light">
   <title>InJazz — джазовая кофейня в Санкт-Петербурге</title>
 
+  <!-- Превью ссылки в мессенджерах и соцсетях (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="InJazz">
+  <meta property="og:title" content="InJazz — джазовая кофейня в Санкт-Петербурге">
+  <meta property="og:description" content="Кофе собственной обжарки, уютный интерьер и живой джаз по пятницам. ул. Бродского, 4.">
+  <meta property="og:url" content="https://gilian21e.github.io/injazz-lr4/">
+  <meta property="og:image" content="https://gilian21e.github.io/injazz-lr4/images/jazz-saxophone.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com">
@@ -260,7 +270,7 @@
             type="button"
             role="tab"
             id="tab-coffee"
-            aria-controls="menu-coffee"
+            aria-controls="menu-items"
             aria-selected="true"
             tabindex="0"
             data-category="coffee"
@@ -271,7 +281,7 @@
             type="button"
             role="tab"
             id="tab-signature"
-            aria-controls="menu-signature"
+            aria-controls="menu-items"
             aria-selected="false"
             tabindex="-1"
             data-category="signature"
@@ -282,7 +292,7 @@
             type="button"
             role="tab"
             id="tab-other"
-            aria-controls="menu-other"
+            aria-controls="menu-items"
             aria-selected="false"
             tabindex="-1"
             data-category="other"
@@ -293,14 +303,14 @@
             type="button"
             role="tab"
             id="tab-desserts"
-            aria-controls="menu-desserts"
+            aria-controls="menu-items"
             aria-selected="false"
             tabindex="-1"
             data-category="desserts"
           >Десерты</button>
         </div>
 
-        <div class="menu-grid" id="menu-items" aria-live="polite">
+        <div class="menu-grid" id="menu-items" role="tabpanel" aria-labelledby="tab-coffee" tabindex="0" aria-live="polite">
           <div class="menu-item">
             <div class="menu-item__body">
               <h3 class="menu-item__title">Эспрессо</h3>
@@ -1029,6 +1039,7 @@
         });
 
         renderMenu(category);
+        menuItemsContainer.setAttribute("aria-labelledby", tab.id);
 
         if (moveFocus) {
           tab.focus();
